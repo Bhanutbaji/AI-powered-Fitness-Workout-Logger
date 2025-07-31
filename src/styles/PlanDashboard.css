@@ -1,0 +1,104 @@
+.dashboard-container {
+  display: flex;
+  justify-content: space-between; 
+  padding: 2rem;
+  gap: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: black;
+  width: 85vw;
+}
+
+.left-side {
+  flex: 2;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.plan-list {
+  margin-top: 1rem;
+}
+
+.plan-day {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border-left: 5px solid #ccc;
+  transition: border 0.3s;
+}
+
+.plan-day.completed {
+  border-left: 5px solid green;
+  opacity: 0.8;
+}
+
+.plan-day button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.plan-day button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.edit-btn, .delete-btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.right-side {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 25px;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #28a745;
+  transition: width 0.5s ease-in-out;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 200px;
+  margin-top: 1rem;
+}
