@@ -1,18 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where,deleteDoc, doc } from 'firebase/firestore';
 import { useAuth } from '../hooks/useAuth';
 import '../styles/HomePage.css';
 import heroImage from '../assets/images/hero.png';
 import logoImage from '../assets/images/logo.png';
 import PlanCard from '../components/PlanCard';
 
+
+
 export default function HomePage() {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const fetchPlans = async () => {
@@ -32,6 +35,14 @@ export default function HomePage() {
       fetchPlans();
     }
   }, [user]);
+  const handleDelete = async (planId) => {
+  try {
+    await deleteDoc(doc(db, 'workout_plans', planId));
+    setPlans(plans.filter(plan => plan.id !== planId));
+  } catch (error) {
+    console.error('Error deleting plan:', error.message);
+  }
+};
 
   return (
     <div className="homepage-container">
@@ -78,7 +89,7 @@ export default function HomePage() {
           ) : (
             plans.map((plan) => (
               <div key={plan.id} className="card">
-                <PlanCard plan={plan} />
+                <PlanCard plan={plan} onDelete={handleDelete} />
               </div>
             ))
           )}
