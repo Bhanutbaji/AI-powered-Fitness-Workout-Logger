@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../supabase';
+import { db } from '../firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useAuth } from '../hooks/useAuth';
 import '../styles/HomePage.css';
 import heroImage from '../assets/images/hero.png';
@@ -10,20 +11,20 @@ import PlanCard from '../components/PlanCard';
 export default function HomePage() {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPlans = async () => {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('workout_plans')
-        .select('*')
-        .eq('user_id', user.id);
-      if (error) {
+      try {
+        const plansRef = collection(db, 'workout_plans');
+        const q = query(plansRef, where('userId', '==', user.uid));
+        const querySnapshot = await getDocs(q);
+        const plansData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setPlans(plansData);
+      } catch (error) {
         console.error('Error fetching plans:', error.message);
-      } else {
-        setPlans(data);
       }
       setLoading(false);
     };
@@ -45,7 +46,7 @@ export default function HomePage() {
           </div>
           <div className="signout-box">
             <div className="signout-text" onClick={async () => {
-              await supabase.auth.signOut();
+              await logout();
               navigate('/login');
             }}>
               Sign Out
@@ -81,7 +82,7 @@ export default function HomePage() {
               </div>
             ))
           )}
-          <div className="add-btn" onClick={() => navigate('/add')}>+</div>
+          <div className="add-btn" onClick={() => navigate('/add-workout-plan')}>+</div>
         </div>
       </div>
     </div>

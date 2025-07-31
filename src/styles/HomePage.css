@@ -3,20 +3,19 @@ html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden; /* Allow vertical scrolling, prevent horizontal */
   font-family: 'Inria Sans', sans-serif;
   box-sizing: border-box;
 }
 
 .homepage-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh; /* Changed from height to min-height */
   display: flex;
   flex-direction: column;
   background: #fff;
-  overflow: hidden;
+  overflow-x: hidden; /* Allow vertical scrolling, prevent horizontal */
   box-sizing: border-box;
-  min-height: 0;
 }
 
 /* HEADER ROW */
@@ -85,21 +84,25 @@ html, body {
 /* HERO SECTION */
 .hero-section-wrapper {
   width: 100vw;
+  height: 60vh; /* Set a fixed height to fill more space */
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center; /* Center the hero vertically */
   position: relative;
   margin-top: 12px;
   flex: 0 0 auto;
+  margin-bottom: 40px;
+  padding-left: 48px;
+  padding-right: 48px;
 }
 
 .hero {
-  width: 90vw;
-  max-width: 1200px;
-  height: 38vh;
-  min-height: 220px;
-  max-height: 420px;
-  border-radius: 39px;
+  width: 100%; /* Fill the entire wrapper width */
+  height: 100%; /* Fill the entire wrapper height */
+  max-width: none; /* Remove max-width constraint */
+  min-height: auto; /* Remove min-height constraint */
+  max-height: none; /* Remove max-height constraint */
+  border-radius: 0 39px 39px 0; /* Left curve removed, right curve added */
   overflow: hidden;
   position: relative;
   background: #eaf5e1;
@@ -111,7 +114,7 @@ html, body {
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Changed back to cover to fill container fully */
   border-radius: 39px;
   display: block;
 }
@@ -170,6 +173,7 @@ html, body {
   overflow-y: auto;
   padding-bottom: 24px;
   box-sizing: border-box;
+  margin-top: 24px;
 }
 
 .plan-cards-scroll {
@@ -241,6 +245,32 @@ html, body {
 }
 .add-btn:hover {
   background: #6fa13a;
+}
+
+.plan-card {
+  background: rgba(223, 239, 199, 0.35); /* Changed back to original green background */
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 20px 28px;
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 8px;
+}
+
+.plan-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #273c07; /* Dark green text for visibility */
+}
+
+.plan-card-detail {
+  font-size: 1rem;
+  margin: 2px 0;
+  color: #273c07; /* Dark green text for visibility */
 }
 
 /* Responsive adjustments */
