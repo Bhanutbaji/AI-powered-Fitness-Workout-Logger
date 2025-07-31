@@ -1,45 +1,72 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './hooks/useAuth';
 
-// Pages
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
-import UserInfo from './pages/UserInfo';
-import Dashboard from './pages/HomePage';
+import ProfileSetup from './pages/ProfileSetup';
+import HomePage from './pages/HomePage';
+import AddWorkoutPlan from './pages/AddWorkoutPlan';
+import PlanDashboard from './pages/PlanDashboard';
 import Progress from './pages/Progress';
 import NotFound from './pages/NotFound';
 
-// Optional: Later, import context for auth state
-// import { useAuth } from './hooks/useAuth';
+import ProtectedRoute from './routes/ProtectedRoute';
+import './styles/global.css';
 
 function App() {
-  const isLoggedIn = !!localStorage.getItem('user'); // Temporary check (replace with context later)
+  const { user } = useAuth();
 
   return (
     <Router>
       <Routes>
+        {/* Public Routes */}
+        <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+        <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />
 
-        {/* Auth Pages */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        {/* Protected Routes */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile-setup"
+          element={
+            <ProtectedRoute>
+              <ProfileSetup />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-plan"
+          element={
+            <ProtectedRoute>
+              <AddWorkoutPlan />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/plan/:id"
+          element={
+            <ProtectedRoute>
+              <PlanDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/progress"
+          element={
+            <ProtectedRoute>
+              <Progress />
+            </ProtectedRoute>
+          }
+        />
 
-        {/* After signup: user info page */}
-        <Route path="/user-info" element={
-          isLoggedIn ? <UserInfo /> : <Navigate to="/login" />
-        } />
-
-        {/* Main app page: dashboard */}
-        <Route path="/dashboard" element={
-          isLoggedIn ? <Dashboard /> : <Navigate to="/login" />
-        } />
-
-        {/* Progress page */}
-        <Route path="/progress" element={
-          isLoggedIn ? <Progress /> : <Navigate to="/login" />
-        } />
-
-        {/* Catch-all */}
+        {/* Fallback Route */}
         <Route path="*" element={<NotFound />} />
-
       </Routes>
     </Router>
   );
