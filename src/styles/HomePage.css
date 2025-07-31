@@ -1,0 +1,321 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Allow vertical scrolling, prevent horizontal */
+  font-family: 'Inria Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.homepage-container {
+  width: 100vw;
+  min-height: 100vh; /* Changed from height to min-height */
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow-x: hidden; /* Allow vertical scrolling, prevent horizontal */
+  box-sizing: border-box;
+}
+
+/* HEADER ROW */
+.header-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 48px 0 48px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  margin-right: 24px;
+}
+
+.navbar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(181, 227, 114, 0.84), rgba(56, 82, 17, 0.74));
+  border-radius: 39px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.73);
+  min-width: 420px;
+  max-width: 600px;
+  height: 54px;
+  margin: 0 24px;
+  padding: 0 32px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-item {
+  font-size: 22px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Inria Sans', sans-serif;
+  font-weight: 500;
+  padding: 0 8px;
+}
+
+.signout-box {
+  background: #273c07;
+  border-radius: 39px;
+  padding: 0.3rem 1.2rem;
+  margin-left: 16px;
+}
+
+.signout-text {
+  color: white;
+  font-family: 'Inconsolata', monospace;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero-section-wrapper {
+  width: 100vw;
+  height: 60vh; /* Set a fixed height to fill more space */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the hero vertically */
+  position: relative;
+  margin-top: 12px;
+  flex: 0 0 auto;
+  margin-bottom: 40px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.hero {
+  width: 100%; /* Fill the entire wrapper width */
+  height: 100%; /* Fill the entire wrapper height */
+  max-width: none; /* Remove max-width constraint */
+  min-height: auto; /* Remove min-height constraint */
+  max-height: none; /* Remove max-height constraint */
+  border-radius: 0 39px 39px 0; /* Left curve removed, right curve added */
+  overflow: hidden;
+  position: relative;
+  background: #eaf5e1;
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.15);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Changed back to cover to fill container fully */
+  border-radius: 39px;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  font-size: 38px;
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 300;
+  z-index: 2;
+  text-shadow: 1px 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.2;
+  max-width: 350px;
+}
+
+/* CALENDAR OVER HERO IMAGE */
+.calendar-box {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 320px;
+  min-width: 220px;
+  max-width: 340px;
+  height: auto;
+}
+
+.custom-calendar {
+  border: none !important;
+  background: transparent !important;
+  font-family: 'Inria Sans', sans-serif;
+  width: 100% !important;
+  min-width: 200px;
+  max-width: 320px;
+}
+
+/* PLAN CARDS SECTION */
+.plan-cards-section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 32vh;
+  overflow-y: auto;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+  margin-top: 24px;
+}
+
+.plan-cards-scroll {
+  width: 90vw;
+  max-width: 1200px;
+  background: rgba(223, 239, 199, 0.35);
+  border-radius: 39px;
+  box-shadow: 0 4px 4px rgba(73, 78, 66, 0.16);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 32px 32px 32px 32px;
+  position: relative;
+  min-height: 110px;
+  max-height: 200px;
+  scrollbar-width: thin;
+  scrollbar-color: #8ac34d #eaf5e1;
+}
+
+.plan-cards-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+.plan-cards-scroll::-webkit-scrollbar-thumb {
+  background: #8ac34d;
+  border-radius: 8px;
+}
+.plan-cards-scroll::-webkit-scrollbar-track {
+  background: #eaf5e1;
+  border-radius: 8px;
+}
+
+.card {
+  min-width: 260px;
+  max-width: 280px;
+  height: 110px;
+  background: rgba(151, 203, 78, 0.59);
+  box-shadow: 0 4px 4px rgba(73, 78, 66, 0.16);
+  border-radius: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+.add-btn {
+  min-width: 70px;
+  min-height: 70px;
+  width: 70px;
+  height: 70px;
+  background: #8ac34d;
+  border-radius: 50%;
+  color: white;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 4px 12px rgba(73, 78, 66, 0.18);
+  border: 4px solid #fff;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.add-btn:hover {
+  background: #6fa13a;
+}
+
+.plan-card {
+  background: rgba(223, 239, 199, 0.35); /* Changed back to original green background */
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 20px 28px;
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 8px;
+}
+
+.plan-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #273c07; /* Dark green text for visibility */
+}
+
+.plan-card-detail {
+  font-size: 1rem;
+  margin: 2px 0;
+  color: #273c07; /* Dark green text for visibility */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .header-row, .hero-section-wrapper, .plan-cards-section {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .hero, .plan-cards-scroll {
+    width: 98vw;
+    max-width: 98vw;
+  }
+  .calendar-box {
+    right: 8px;
+    top: 8px;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 2px;
+  }
+  .custom-calendar {
+    min-width: 100px;
+    max-width: 160px;
+    font-size: 10px;
+  }
+  .card {
+    min-width: 180px;
+    max-width: 200px;
+    height: 70px;
+    font-size: 14px;
+  }
+  .add-btn {
+    min-width: 40px;
+    min-height: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+  .hero {
+    height: 22vh;
+    min-height: 120px;
+  }
+  .hero-text {
+    font-size: 14px;
+    left: 10px;
+    top: 10px;
+    max-width: 120px;
+  }
+}
