@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { supabase } from '../../services/supabase';
+import { auth } from '../../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import '../../styles/Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,49 +13,79 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
+    setLoading(true);
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      setError(error.message);
-    } else {
-      navigate('/'); // Redirect to HomePage
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/home'); // Navigate to home page after successful login
+    } catch (error) {
+      // Handle different Firebase auth errors
+      let errorMessage = 'An error occurred during login.';
+      
+      switch (error.code) {
+        case 'auth/user-not-found':
+          errorMessage = 'No account found with this email address.';
+          break;
+        case 'auth/wrong-password':
+          errorMessage = 'Incorrect password.';
+          break;
+        case 'auth/invalid-email':
+          errorMessage = 'Invalid email address.';
+          break;
+        case 'auth/user-disabled':
+          errorMessage = 'This account has been disabled.';
+          break;
+        case 'auth/too-many-requests':
+          errorMessage = 'Too many failed attempts. Please try again later.';
+          break;
+        default:
+          errorMessage = error.message;
+      }
+      
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
-    <div className="auth-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin} className="auth-form">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-        {error && <p className="error">{error}</p>}
-      </form>
-      <p>
-        Don’t have an account? <Link to="/register">Sign Up</Link>
-      </p>
+    <div className="login-container">
+      <header className="login-header">UNIFIT</header>
+      <main className="login-main">
+        <div className="login-box">
+          <h2>Login</h2>
+          <form onSubmit={handleLogin}>
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              required
+              disabled={loading}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              required
+              disabled={loading}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            {error && <p className="error">{error}</p>}
+
+            <button type="submit" disabled={loading}>
+              {loading ? 'Logging in...' : 'Login'}
+            </button>
+          </form>
+
+          <p className="signup-redirect">
+            Don't have an account? <Link to="/register">Create Account</Link>
+          </p>
+        </div>
+      </main>
     </div>
   );
 };

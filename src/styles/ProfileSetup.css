@@ -1,0 +1,89 @@
+.profile-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-header {
+  background-color: black;
+  color: white;
+  padding: 1.2rem 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.profile-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+}
+
+.profile-box {
+  background-color: white;
+  padding: 2.5rem;
+  border: 3px solid #f5c518; /* Glazing yellow */
+  border-radius: 16px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profile-box h2 {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.profile-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-box label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.profile-box input,
+.profile-box select {
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+
+.profile-box input:focus,
+.profile-box select:focus {
+  border-color: #000;
+}
+
+.profile-box button {
+  margin-top: 2rem;
+  padding: 0.8rem;
+  background-color: #28a745; /* Green */
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.profile-box button:hover {
+  background-color: #218838;
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: green;
+  text-align: center;
+  font-weight: bold;
+}
