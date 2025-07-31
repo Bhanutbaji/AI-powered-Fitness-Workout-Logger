@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import UserInfo from './pages/UserInfo';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/HomePage';
 import Progress from './pages/Progress';
 import NotFound from './pages/NotFound';
 
