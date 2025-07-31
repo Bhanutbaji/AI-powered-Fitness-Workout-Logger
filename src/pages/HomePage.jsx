@@ -53,50 +53,52 @@ export default function HomePage() {
         position: 'relative',
         zIndex: 1000,
         minHeight: '60px',
-        border: '2px solid red'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'yellow' }}>
-          <img 
-            src={logoImage} 
-            alt="Logo" 
-            style={{ width: '100px', height: 'auto', display: 'block' }} 
-          />
-          <span style={{ marginLeft: '10px', fontSize: '18px', color: '#333' }}>UniFit</span>
-        </div>
-        <div style={{ 
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          background: 'linear-gradient(90deg, rgba(181, 227, 114, 0.84), rgba(56, 82, 17, 0.74))',
-          borderRadius: '39px',
-          boxShadow: '0 4px 4px rgba(0, 0, 0, 0.73)',
-          minWidth: '500px',
-          maxWidth: '700px',
-          height: '48px',
-          padding: '0 32px',
-          margin: 0
-        }}>
-          <div style={{ display: 'flex', gap: '32px' }}>
-            <div style={{ fontSize: '20px', color: '#ffffff', cursor: 'pointer', padding: '0 8px' }} onClick={() => navigate('/')}>Home</div>
-            <div style={{ fontSize: '20px', color: '#ffffff', cursor: 'pointer', padding: '0 8px' }} onClick={() => navigate('/about')}>About</div>
-            <div style={{ fontSize: '20px', color: '#ffffff', cursor: 'pointer', padding: '0 8px' }} onClick={() => navigate('/profile')}>Profile</div>
+        <div className="logo-nav">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <img 
+              src={logoImage} 
+              alt="Logo" 
+              className="logo"
+              style={{ height: '70px', width: 'auto', marginRight: '18px' }}
+            />
+            <span style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#273c07', letterSpacing: '1px' }}>UniFit</span>
           </div>
           <div style={{ 
-            background: '#273c07',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            background: 'linear-gradient(90deg, rgba(181, 227, 114, 0.84), rgba(56, 82, 17, 0.74))',
             borderRadius: '39px',
-            padding: '0.3rem 1.2rem',
-            marginLeft: '16px'
+            boxShadow: '0 4px 4px rgba(0, 0, 0, 0.73)',
+            minWidth: '500px',
+            maxWidth: '700px',
+            height: '48px',
+            padding: '0 32px',
+            margin: 0
           }}>
+            <div style={{ display: 'flex', gap: '32px' }}>
+              <div style={{ fontSize: '20px', color: '#ffffff', cursor: 'pointer', padding: '0 8px' }} onClick={() => navigate('/')}>Home</div>
+              <div style={{ fontSize: '20px', color: '#ffffff', cursor: 'pointer', padding: '0 8px' }} onClick={() => navigate('/about')}>About</div>
+              <div style={{ fontSize: '20px', color: '#ffffff', cursor: 'pointer', padding: '0 8px' }} onClick={() => navigate('/profile')}>Profile</div>
+            </div>
             <div style={{ 
-              color: 'white',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              cursor: 'pointer'
-            }} onClick={async () => {
-              await supabase.auth.signOut();
-              navigate('/login');
+              background: '#273c07',
+              borderRadius: '39px',
+              padding: '0.3rem 1.2rem',
+              marginLeft: '16px'
             }}>
-              Sign Out
+              <div style={{ 
+                color: 'white',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                cursor: 'pointer'
+              }} onClick={async () => {
+                await supabase.auth.signOut();
+                navigate('/login');
+              }}>
+                Sign Out
+              </div>
             </div>
           </div>
         </div>
