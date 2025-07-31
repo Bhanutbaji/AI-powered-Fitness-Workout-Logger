@@ -40,7 +40,7 @@ export default function HomePage() {
         <img src={logoImage} alt="Logo" className="logo" />
         <div className="navbar">
           <div className="nav-links">
-            <div className="nav-item" onClick={() => navigate('/')}>Home</div>
+            <div className="nav-item" onClick={() => navigate('/home')}>Home</div>
             <div className="nav-item" onClick={() => navigate('/about')}>About</div>
             <div className="nav-item" onClick={() => navigate('/profile')}>Profile</div>
           </div>
