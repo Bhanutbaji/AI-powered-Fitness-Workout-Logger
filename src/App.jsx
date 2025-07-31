@@ -5,7 +5,7 @@ import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import ProfileSetup from './pages/ProfileSetup';
 import HomePage from './pages/HomePage';
-import AddWorkoutPlan from './pages/AddWorkoutPlan';
+import AddWorkoutPlan from './pages/AddWorkoutPLan';
 import PlanDashboard from './pages/PlanDashboard';
 import Progress from './pages/Progress';
 import NotFound from './pages/NotFound';
