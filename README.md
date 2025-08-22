@@ -46,19 +46,31 @@ Most fitness apps provide generic plans without considering **user goals or real
 git clone https://github.com/Bhanutbaji/AI-powered-Fitness-Workout-Logger.git
 cd AI-powered-Fitness-Workout-Logger
 
-2.Install dependencies:
+2. Install dependencies:
 npm install
 
-3.Set up Firebase by adding your project details to .env or firebaseConfig.js
+3. Set up Firebase by adding your project details to .env or firebaseConfig.js
 
 Run the Development Server
 npm start
 
-Project Documentation: 
+---
+###Project Documentation: 
 
-Screenshots:
- - **Login / Signup Page:** ![Login](./screenshots/login.png)  
-- **Dashboard & AI Plan Cards:** ![Dashboard](./screenshots/dashboard.png)  
-- **Progress Charts & Calendar:** ![Progress Charts](./screenshots/charts.png)  
-- **Add Workout Plan Form:** ![Add Plan](./screenshots/add_plan.png)  
+###Screenshots:
+ - **Login / Signup Page:** ![Login](https://drive.google.com/file/d/1lvDnaFtPXRgHuAgBvXs0VW5D_MI0rUnx/view?usp=drive_link)  
+- **Profile SetUp Page:** ![ProfileSetUp]
+- **Home Page:** ![Home] 
+- **Add Workout Plan Form:** ![Add Plan]
+
+## Team Contributions
+
+- **Bhanu T Baji:** Frontend & UI/UX design, Home Page, Add Plan Card, Calendar, Workout Logs Table
+- **Fida K A:** Frontend, Login, Signup, Profile Setup pages, Firebase authentication  
+- **Fizza Sudheer:** Backend implementation, data visualization, workout dashboard, AI integration  
+- **Anagha S:** Backend implementation, dashboard features  
+
+
+
+
 
