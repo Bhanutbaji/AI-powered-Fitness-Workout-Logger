@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: column;
   background-color: #f5f5f5;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .login-header {
-  background-color: black;
-  color: white;
+  background-color: rgb(19, 86, 2);
+  color: rgb(255, 255, 255);
   padding: 16px 24px;
   font-size: 24px;
   font-weight: bold;
@@ -23,10 +23,10 @@
 }
 
 .login-box {
-  background: white;
+  background: rgba(255, 255, 255, 0.645);
   padding: 32px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(54, 121, 18, 0.288);
   width: 100%;
   max-width: 400px;
 }
@@ -55,7 +55,7 @@
 
 .login-box button {
   padding: 10px;
-  background-color: #007bff;
+  background-color: #114205;
   border: none;
   color: white;
   font-weight: bold;
@@ -64,7 +64,7 @@
 }
 
 .login-box button:hover {
-  background-color: #0056b3;
+  background-color: #135f1a;
 }
 
 .google-button {
@@ -96,7 +96,7 @@
 }
 
 .signup-redirect a {
-  color: #007bff;
+  color: #1b670a;
   text-decoration: none;
 }
 

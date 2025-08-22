@@ -1,14 +1,14 @@
 .profile-container {
-  min-height: 100vh;
+  min-height: 70vh;
   background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .profile-header {
-  background-color: black;
+  background-color: rgb(24, 69, 2);
   color: white;
   padding: 1.2rem 2rem;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
   text-align: center;
 }
@@ -23,10 +23,10 @@
 .profile-box {
   background-color: white;
   padding: 2.5rem;
-  border: 3px solid #f5c518; /* Glazing yellow */
+  border: 3px solid #1f5e06; /* Glazing yellow */
   border-radius: 16px;
   width: 100%;
-  max-width: 450px;
+  max-width: 600px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -35,7 +35,7 @@
   text-align: center;
   margin-bottom: 1.8rem;
   font-size: 1.6rem;
-  color: #333;
+  color: #71b357;
 }
 
 .profile-box form {
@@ -47,7 +47,7 @@
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #444;
+  color: #0a2404;
 }
 
 .profile-box input,
@@ -68,7 +68,7 @@
 .profile-box button {
   margin-top: 2rem;
   padding: 0.8rem;
-  background-color: #28a745; /* Green */
+  background-color: #043810; /* Green */
   color: white;
   font-size: 1rem;
   border: none;
@@ -78,7 +78,7 @@
 }
 
 .profile-box button:hover {
-  background-color: #218838;
+  background-color: #058420;
 }
 
 .success-message {
