@@ -1,12 +1,64 @@
-# React + Vite
+# UniFit – AI-Powered Personalized Fitness Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Project Description
+UniFit is a full-stack web application that helps users achieve their fitness goals with **AI-generated personalized workout plans, flexible workout logging**, and **interactive progress visualization**. Users can track their routines, visualize improvements, and stay motivated with actionable insights.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Problem Statement
+Most fitness apps provide generic plans without considering **user goals or real-time progress**, making it hard to stay consistent. UniFit addresses this by **creating tailored AI-generated workout plans**, tracking workouts, and providing visual feedback to help users achieve their fitness goals efficiently.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Solution
+- Users register and set fitness goals (frequency, target areas, objectives).  
+- GPT-3.5 Turbo generates personalized workout plans based on goals.  
+- Users log workouts with details like sets, reps, weight, and duration.  
+- Interactive charts and calendar visualize progress over time.  
+- Users can filter workouts by type, date, or exercise name.  
+
+---
+
+## Key Features
+- **Secure Accounts:** Login/signup and goal selection  
+- **AI Workout Plans:** Personalized routines via GPT-3.5 Turbo  
+- **Workout Logging:** Add, edit, delete workouts with sets, reps, weight, and duration  
+- **Progress Visualization:** Charts and calendar to track workouts and trends  
+- **Filtering:** Search workouts by type, date, or name  
+
+---
+
+## Tech Stack
+- Frontend: React, Vite, CSS  
+- Backend: Firebase Functions  
+- Database: Firebase Firestore  
+- AI Engine: OpenAI GPT-3.5 Turbo  
+- Visualization: Chart.js, FullCalendar  
+
+---
+## Implementation
+
+### Installation
+1. Clone the repository:  
+```bash
+git clone https://github.com/Bhanutbaji/AI-powered-Fitness-Workout-Logger.git
+cd AI-powered-Fitness-Workout-Logger
+
+2.Install dependencies:
+npm install
+
+3.Set up Firebase by adding your project details to .env or firebaseConfig.js
+
+Run the Development Server
+npm start
+
+Project Documentation: 
+
+Screenshots:
+ - **Login / Signup Page:** ![Login](./screenshots/login.png)  
+- **Dashboard & AI Plan Cards:** ![Dashboard](./screenshots/dashboard.png)  
+- **Progress Charts & Calendar:** ![Progress Charts](./screenshots/charts.png)  
+- **Add Workout Plan Form:** ![Add Plan](./screenshots/add_plan.png)  
+
